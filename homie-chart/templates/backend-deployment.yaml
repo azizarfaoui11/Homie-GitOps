@@ -22,3 +22,10 @@ spec:
           envFrom:
             - secretRef:
                 name: backend-secrets
+          volumeMounts:
+            - name: uploads-storage
+              mountPath: /app/uploads   
+      volumes:
+        - name: uploads-storage
+          persistentVolumeClaim:
+            claimName: uploads-pvc   
