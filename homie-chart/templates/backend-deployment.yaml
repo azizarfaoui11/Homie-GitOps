@@ -14,15 +14,6 @@ spec:
         app: backend
     spec:
       serviceAccountName: {{ .Values.backend.serviceAccountName }}
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-              - matchExpressions:
-                  - key: topology.kubernetes.io/zone
-                    operator: In
-                    values:
-                      - eu-north-1a   # ⚡ AZ de ton EBS
       containers:
         - name: backend
           image: {{ .Values.backend.image }}
