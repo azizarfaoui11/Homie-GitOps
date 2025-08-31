@@ -1,13 +1,13 @@
 namespace: homie-app
 
 backend:
-  image: "197304876963.dkr.ecr.eu-north-1.amazonaws.com/homie/backend:aa9d62a"
+  image: "197304876963.dkr.ecr.eu-north-1.amazonaws.com/homie/backend:c6caae2"
   replicas: 2
   port: 5000
   externalSecretName: "prod/homie/secrets"
   serviceAccountName: backend-sa
 
 frontend:
-  image: "197304876963.dkr.ecr.eu-north-1.amazonaws.com/homie/frontend:aa9d62a"
+  image: "197304876963.dkr.ecr.eu-north-1.amazonaws.com/homie/frontend:c6caae2"
   replicas: 2
   port: 80
