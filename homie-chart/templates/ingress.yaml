@@ -10,12 +10,18 @@ metadata:
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
 spec:
   ingressClassName: alb
-
   rules:
     - host: homie.azizarfaoui.ip-ddns.com  
       http:
         paths:
           - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: backend-service
+                port:
+                  number: {{ .Values.backend.port }}
+          - path: /uploads
             pathType: Prefix
             backend:
               service:
