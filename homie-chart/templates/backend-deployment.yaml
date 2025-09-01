@@ -12,9 +12,6 @@ spec:
     metadata:
       labels:
         app: backend
-      annotations:
-        cloudwatchlogs.amazonaws.com/log-group: /eks/{{ .Values.namespace }}/backend
-        cloudwatchlogs.amazonaws.com/log-stream-prefix: backend
     spec:
       serviceAccountName: {{ .Values.backend.serviceAccountName }}
       containers:
@@ -25,5 +22,3 @@ spec:
           envFrom:
             - secretRef:
                 name: backend-secrets
-          
-      
