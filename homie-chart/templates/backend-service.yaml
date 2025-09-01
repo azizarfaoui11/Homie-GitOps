@@ -3,11 +3,13 @@ kind: Service
 metadata:
   name: backend-service
   namespace: {{ .Values.namespace }}
+  labels:
+    app: backend
 spec:
   selector:
     app: backend
   ports:
-    - name: http               
+    - name: http
       protocol: TCP
       port: {{ .Values.backend.port }}
       targetPort: {{ .Values.backend.port }}

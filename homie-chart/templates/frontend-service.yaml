@@ -3,11 +3,13 @@ kind: Service
 metadata:
   name: frontend-service
   namespace: {{ .Values.namespace }}
+  labels:
+    app: frontend
 spec:
   selector:
     app: frontend
   ports:
-    - name: http            
+    - name: http
       protocol: TCP
       port: {{ .Values.frontend.port }}
       targetPort: {{ .Values.frontend.port }}
